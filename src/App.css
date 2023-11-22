@@ -29,6 +29,6 @@ div {
 .modal {
   margin-top: 20px;
   padding: 20px;
-  background: #eee;
+  background: rgb(234, 239, 246);
   text-align: left;
 }

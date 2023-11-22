@@ -4,6 +4,8 @@ import { Jsx } from "./compornents/Jsx";
 import { OnClick } from "./compornents/OnClick";
 import { State } from "./compornents/State";
 import { Map } from "./compornents/Map";
+import { Props } from "./compornents/Props";
+import { Input } from "./compornents/Input";
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
       {/* <State /> */}
       {/* <OnClick /> */}
       {/* <Modal /> */}
-      <Map />
+      {/* <Map /> */}
+      {/* <Props /> */}
+      <Input />
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Modal } from "./Modal";
 
 export const Map = () => {
   let [글제목, 글제목변경] = useState([
@@ -8,9 +7,9 @@ export const Map = () => {
     "파이썬독학",
   ]);
 
-  let [modal, setModal] = useState(false, false, false);
-  let [좋아요, 좋아요변경] = useState(0, 0, 0);
-  let [싫어요, 싫어요변경] = useState(0, 0, 0);
+  let [modal, setModal] = useState([false, false, false]);
+  let [좋아요, 좋아요변경] = useState([0, 0, 0]);
+  let [싫어요, 싫어요변경] = useState([0, 0, 0]);
 
   return (
     <>
@@ -26,39 +25,39 @@ export const Map = () => {
           <div className="list" key={i}>
             <h4
               onClick={() => {
-                let copy = [...setModal];
-                copy[i] = setModal[i](true);
+                let copy = [...modal];
+                copy[i] = true;
                 {
-                  modal[i] == true ? setModal[i](false) : <SModal />;
+                  modal[i] == true ? (copy[i] = false) : <SModal />;
                 }
                 setModal(copy);
               }}
             >
               {a}
-              <span
-                onClick={() => {
-                  let copy = [...좋아요];
-                  copy[i] = copy[i] + 1;
-                  좋아요변경(copy);
-                }}
-              >
-                👍
-              </span>
-              {좋아요}
-
-              <span
-                onClick={() => {
-                  let copy = [...싫어요변경];
-                  copy[i] = 싫어요[i];
-                  싫어요변경(copy);
-                }}
-              >
-                👎
-              </span>
-              {싫어요}
             </h4>
+            <span
+              onClick={() => {
+                let copy = [...좋아요];
+                copy[i] = copy[i] + 1;
+                좋아요변경(copy);
+              }}
+            >
+              👍
+            </span>
+            {좋아요[i]}
+
+            <span
+              onClick={() => {
+                let copy = [...싫어요];
+                copy[i] = copy[i] + 1;
+                싫어요변경(copy);
+              }}
+            >
+              👎
+            </span>
+            {싫어요[i]}
             <p>2월 17일 발행</p>
-            {modal == true ? <SModal /> : null}
+            {modal[i] == true ? <SModal /> : null}
           </div>
         );
       })}
